@@ -12,15 +12,14 @@ const Wrapper = styled.div`
 const Button = styled.button`
   width: 100px;
 `;
+
 export default function VoteRow({ candidate, order, setCandidates }) {
   const { id } = candidate;
-
   const vote = async () => {
     try {
       const result = await axios.get(
         `http://ec2-3-34-5-220.ap-northeast-2.compute.amazonaws.com:2020/vote?id=${id}`
       );
-
       alert('vote success');
     } catch (e) {
       console.log(e);

@@ -6,6 +6,7 @@ import axios from 'axios';
 const Wrapper = styled.div`
   height: 100vh;
 `;
+
 export default function VoteScreen() {
   const [candidates, setCandidates] = useState(null);
   const getData = async () => {
@@ -13,11 +14,9 @@ export default function VoteScreen() {
       const result = await axios.get(
         'http://ec2-3-34-5-220.ap-northeast-2.compute.amazonaws.com:2020/candidates'
       );
-
       result.data = result.data.sort((a, b) => {
         return b.voteCount - a.voteCount;
       });
-
       setCandidates(result.data);
     } catch (e) {
       console.log(e);
@@ -36,7 +35,7 @@ export default function VoteScreen() {
         title={'CEOS 프론트엔드 13기 개발팀장 투표 창입니다'}
         fontSize="30"
       />
-      {candidates && //와;;
+      {candidates &&
         candidates.map((candidate, index) => {
           return (
             <VoteRow key={index} candidate={candidate} order={index}></VoteRow>
