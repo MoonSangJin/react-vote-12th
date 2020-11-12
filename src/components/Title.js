@@ -6,6 +6,6 @@ const Title = styled.div`
   justify-content: center;
   font-size: ${({ fontSize }) => fontSize}px;
 `;
-export default ({ title, fontSize = '50' }) => {
+export default ({ title, fontSize }) => {
   return <Title fontSize={fontSize}>{title}</Title>;
 };
