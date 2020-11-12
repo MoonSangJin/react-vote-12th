@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Title from './Title';
-import VoteButton from './VoteButton';
 import VoteRow from './VoteRow';
 import axios from 'axios';
 const Wrapper = styled.div`
