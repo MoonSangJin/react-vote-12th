@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
+
 import Title from './Title';
 import VoteRow from './VoteRow';
-import axios from 'axios';
+
 const Wrapper = styled.div`
   height: 100vh;
 `;
@@ -11,13 +13,13 @@ export default function VoteScreen() {
   const [candidates, setCandidates] = useState(null);
   const getData = async () => {
     try {
-      const result = await axios.get(
-        'http://ec2-3-34-5-220.ap-northeast-2.compute.amazonaws.com:2020/candidates'
+      const { data } = await axios.get(
+        'http://ec2-3-34-5-220.ap-northeast-2.compute.amazonaws.com:8080/candidates'
       );
-      result.data = result.data.sort((a, b) => {
+      data.sort((a, b) => {
         return b.voteCount - a.voteCount;
       });
-      setCandidates(result.data);
+      setCandidates(data);
     } catch (e) {
       console.log(e);
       alert('fail to get data');

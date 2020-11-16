@@ -6,6 +6,7 @@ const Title = styled.div`
   justify-content: center;
   font-size: ${({ fontSize }) => fontSize}px;
 `;
-export default ({ title, fontSize }) => {
-  return <Title fontSize={fontSize}>{title}</Title>;
+const votePageTitle = ({ title, fontSize }) => {
+  return <Title {...{ fontSize }}>{title}</Title>;
 };
+export default votePageTitle;
