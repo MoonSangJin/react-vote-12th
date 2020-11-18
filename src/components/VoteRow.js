@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import axios from 'axios';
 
+import Button from './Button';
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
@@ -9,9 +11,6 @@ const Container = styled.div`
 const Wrapper = styled.div`
   width: 150px;
   margin: 10px;
-`;
-const Button = styled.button`
-  width: 100px;
 `;
 
 export default function VoteRow({ candidate, order }) {
@@ -33,7 +32,7 @@ export default function VoteRow({ candidate, order }) {
       <Wrapper>{order + 1}위 </Wrapper>
       <Wrapper> {name}</Wrapper>
       <Wrapper>{voteCount}표 </Wrapper>
-      <Button onClick={handleVoteCount}>버튼</Button>
+      <Button onClick={handleVoteCount}>투표</Button>
     </Container>
   );
 }
