@@ -10,7 +10,7 @@ import SignIn from './SignIn';
 import bonobono from '../bonobono.jpg';
 
 const Container = styled.div`
-  height: 100vh;
+  height: 100%;
   border: 5px solid black;
   background-image: ${(props) => (props.sending ? `url(${bonobono})` : '')};
   background-repeat: no-repeat;
